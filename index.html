@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo par Commune</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="javascript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Météo par Commune</h1>
+        
+        <form id="weatherForm" aria-labelledby="formTitle">
+            <div class="form-group">
+                <label for="postalCode">Code Postal</label>
+                <input 
+                    type="text" 
+                    id="postalCode" 
+                    name="postalCode" 
+                    pattern="[0-9]{5}" 
+                    required 
+                    placeholder="Ex: 75001"
+                    aria-describedby="postalCodeHint"
+                >
+                <small id="postalCodeHint">Saisissez un code postal français à 5 chiffres</small>
+            </div>
+
+            <div class="form-group">
+                <label for="communeSelect">Commune</label>
+                <select 
+                    id="communeSelect" 
+                    name="commune" 
+                    required
+                    aria-describedby="communeHint"
+                >
+                    <option value="">Sélectionnez une commune</option>
+                </select>
+                <small id="communeHint">Choisissez une commune après avoir saisi le code postal</small>
+            </div>
+
+            <button type="submit" aria-label="Obtenir les informations météorologiques">
+                Rechercher la météo
+            </button>
+        </form>
+
+        <div id="meteoResults" aria-live="polite" hidden>
+            <h2 id="resultTitle"></h2>
+            <div class="result-item">
+                <span>Température minimale</span>
+                <strong id="tempMin"></strong>
+            </div>
+            <div class="result-item">
+                <span>Température maximale</span>
+                <strong id="tempMax"></strong>
+            </div>
+            <div class="result-item">
+                <span>Probabilité de pluie</span>
+                <strong id="rainProbability"></strong>
+            </div>
+            <div class="result-item">
+                <span>Heures d'ensoleillement</span>
+                <strong id="sunHours"></strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
