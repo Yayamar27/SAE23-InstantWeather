@@ -2,6 +2,8 @@
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --background-color: #ecf0f1;
+    --card-background: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -19,34 +21,42 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     background-color: white;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
     text-align: center;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
-    margin-bottom: 5px;
     font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
 }
 
-input, select {
+input[type="text"],
+select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 8px;
 }
 
 #communeSelect {
@@ -56,49 +66,78 @@ input, select {
 button {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 button:hover {
-    opacity: 0.9;
+    background-color: #2980b9;
+}
+
+.info_sup {
+    margin-top: 10px;
+}
+
+.info_sup p {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.info_sup label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-weight: normal;
+}
+
+.info_sup input[type="checkbox"] {
+    margin-right: 8px;
 }
 
 #meteoResults {
-    margin-top: 20px;
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 4px;
+    margin-top: 30px;
+}
+
+#meteoResults h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+    color: var(--primary-color);
 }
 
 .result-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px var(--card-shadow);
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 4px;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.info_sup label{
-    display: flex;
-    margin: 8px;
+.result-item p {
+    margin: 0;
+    font-size: 15px;
 }
 
-.info_sup label input{
-    width: auto;
-    margin: 0 8px;
+.result-item p strong {
+    color: var(--secondary-color);
 }
-
 
 @media screen and (max-width: 480px) {
     .container {
-        padding: 15px;
+        padding: 20px;
+    }
+
+    .result-item {
+        padding: 12px 15px;
     }
 }
-
